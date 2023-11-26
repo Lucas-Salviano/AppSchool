@@ -36,8 +36,16 @@ public class Curso {
         return alunos;
     }
 
+    public void setAlunos(List<Alunos> alunos) {
+        this.alunos = alunos;
+    }
+
     public List<Professores> getProfessor() {
         return professor;
+    }
+
+    public void setProfessor(List<Professores> Professor) {
+        this.professor = Professor;
     }
     
     public String getNome() {
