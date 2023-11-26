@@ -17,29 +17,47 @@ public class Escola {
 
     public Escola(String nome) {
         this.nome = nome;
-        //this.endereco = endereco;
-        //this.id = id;
-        //this.dataFundacao = dataFundacao;
         this.cursos = new ArrayList<>();
         this.diretor = new ArrayList<>();
     }
     
     
-     public void adicionarCurso(Curso curso) {
-        cursos.add(curso);
+     public void adicionarCurso() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("É preciso cadastrar um curso.");
+        System.out.println("Qual o nome do curso? ");
+        String nomeCurso = input.nextLine();
+        Curso Curso = new Curso(nomeCurso);
+        Curso.criarCurso();
+        cursos.add(Curso);
+        
+        input.close();
     }
     
     public void removerCurso(Curso curso) {
         cursos.remove(curso);
     }
     
-    public void adicionarDiretor(Diretor Diretor) {
+    public void adicionarDiretor() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("É preciso cadastrar um diretor.");
+        System.out.println("Qual o nome do diretor? ");
+        String nomeDiretor = input.nextLine();
+        Diretor Diretor = new Diretor(nomeDiretor);
+        Diretor.CriarDiretor();
         diretor.add(Diretor);
+
+        input.close();
     }
 
-    public void removerDiretor(Diretor Diretor) {
-        diretor.remove(Diretor);
-    }
+    /*public void removerDiretor(Diretor Diretor) {
+        if(diretor.size()==0){
+            System.out.println("Não há nenhum diretor para remover!");
+        } else {
+            diretor.remove(Diretor);
+        }
+        
+    }*/
 
     public String getNome() {
         return nome;
@@ -102,17 +120,21 @@ public class Escola {
     }
 
     public void criarEscola(){
-        Scanner Sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("Endereço: ");
-        endereco = Sc.nextLine();
+        endereco = input.nextLine();
         System.out.println("Data de fundação (##/##/####): ");
-        dataFundacao = Sc.nextLine();
+        dataFundacao = input.nextLine();
         System.out.println("Id: ");
-        id = Sc.nextInt();
-        
-        Sc.nextLine();
-        Sc.close();
+        id = input.nextInt();
+        input.nextLine();
+
+        adicionarDiretor();
+        adicionarCurso();
+
+        input.close();
+        return;
         
     }
 
@@ -121,11 +143,11 @@ public class Escola {
         System.out.println("Endereço: "+endereco);
         System.out.println("Data de fundação: "+dataFundacao);
         System.out.println("Id: "+id);       
-        System.out.println("Diretor responsável: "+diretor.get(0));
+        System.out.println("Diretor: "+diretor);
         System.out.println(" ");
-        System.out.println("Cursos: ");
+        /*System.out.println("Cursos: ");
         for (Curso i : cursos){
             System.out.println(i);
-        }     
+        }*/     
    }
 }

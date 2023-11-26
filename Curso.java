@@ -12,9 +12,8 @@ public class Curso {
     private List<Alunos> alunos;
     private List<Professores> professor;
 
-    public Curso(String nome, int id, String descricao, List<Alunos> alunos, List<Professores> professor) {
+    public Curso(String nome) {
         this.nome = nome;
-        this.id = id;
         this.alunos = new ArrayList<>();
         this.professor = new ArrayList<>();
 
@@ -73,22 +72,28 @@ public class Curso {
     }
     
     public void criarCurso(){
-        Scanner Sc = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
 
         System.out.println("Nome do curso: ");
-        nome = Sc.next();
+        nome = input.next();
         System.out.println("Id: ");
-        id = Sc.nextInt();
+        id = input.nextInt();
         System.out.println("Descrição: ");
-        descricao = Sc.next();
+        descricao = input.next();
 
-        Sc.close();
+        input.close();
     }
 
     public void exibirInfo(){
         System.out.println("Nome: "+nome);
         System.out.println("Id: "+id);
         System.out.println("Professor responsável: "+professor.get(0));
+        System.out.println(" ");
         System.out.println("Descrição: "+descricao);
+        System.out.println(" ");
+        System.out.println("Alunos: ");
+        for (Alunos i : alunos){
+            System.out.println(i);
+        }
     }
 }

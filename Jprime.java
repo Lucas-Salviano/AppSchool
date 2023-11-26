@@ -8,25 +8,38 @@ public class Jprime {
     
 
     public static void main(String[] args) {
-        List<Escola> listaEscolas;
+        while (true) { //serve para fazer o código semprecontinuar rodando
 
-        Scanner input = new Scanner(System.in);
+            List<Escola> listaEscolas;
 
-        listaEscolas = new ArrayList<>();
+            Scanner input = new Scanner(System.in);
 
-        System.out.println("GERENCIADOR DE ESCOLAS");
-        System.out.println("Por favor, cadastre a primeira Escola:");
-        System.out.println("Qual o nome da escola?");
-        String nomeEscola1 = input.next();
+            listaEscolas = new ArrayList<>();
 
-        Escola Escola1 = new Escola(nomeEscola1);
-        listaEscolas.add(Escola1);
-        Escola1.criarEscola();
-        Escola1.ExibirInfo();
+            System.out.println("GERENCIADOR DE ESCOLAS");
+                System.out.println("Para iniciar, é preciso criar a primeira Escola");
+                System.out.println("Qual o nome da escola?");
+                String nomeEscola1 = input.nextLine();
 
-        
-        
+                Escola Escola1 = new Escola(nomeEscola1);
+                listaEscolas.add(Escola1);
+                Escola1.criarEscola();
+                Escola1.ExibirInfo();
+                input.nextLine();
 
-        
+                /*Explicação: nada vai funcionar senão existir a primeira escola, então primeiro criamos ela
+                então, puxo a função de criar a primeira escola assim e se for na classe "escola" pode ver que
+                la na função "criar escola" ja puxa a "criar diretor" para que sejam criados os principais e primeiros elementos*/
+
+            
+                int acao=0;
+                System.out.println("Pressione 1 para fechar");
+                acao = input.nextInt();
+                input.nextLine();
+                if(acao==1) break;
+            
+            
+        }
+               
     }
 }
