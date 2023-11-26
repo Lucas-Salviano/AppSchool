@@ -13,11 +13,13 @@ public class Escola {
     private List<Curso> cursos;
     private List<Diretor> diretor;
 
-    public Escola(String nome, String endereco, int id, String dataFundacao, List<Curso> cursos, List<Diretor> diretor) {
+    //String nome, String endereco, int id, String dataFundacao, List<Curso> cursos, List<Diretor> diretor
+
+    public Escola(String nome) {
         this.nome = nome;
-        this.endereco = endereco;
-        this.id = id;
-        this.dataFundacao = dataFundacao;
+        //this.endereco = endereco;
+        //this.id = id;
+        //this.dataFundacao = dataFundacao;
         this.cursos = new ArrayList<>();
         this.diretor = new ArrayList<>();
     }
@@ -102,23 +104,25 @@ public class Escola {
     public void criarEscola(){
         Scanner Sc = new Scanner(System.in);
 
-        System.out.println("Nome da escola: ");
-        nome = Sc.next();
         System.out.println("Endereço: ");
-        endereco = Sc.next();
+        endereco = Sc.nextLine();
+        System.out.println("Data de fundação (##/##/####): ");
+        dataFundacao = Sc.nextLine();
         System.out.println("Id: ");
         id = Sc.nextInt();
-        System.out.println("Data de fundação: ");
-        dataFundacao = Sc.next();
-
+        
+        Sc.nextLine();
         Sc.close();
+        
     }
 
    public void ExibirInfo(){
         System.out.println("Nome: "+nome);
-        System.out.println("Id: "+id);
         System.out.println("Endereço: "+endereco);
+        System.out.println("Data de fundação: "+dataFundacao);
+        System.out.println("Id: "+id);       
         System.out.println("Diretor responsável: "+diretor.get(0));
+        System.out.println(" ");
         System.out.println("Cursos: ");
         for (Curso i : cursos){
             System.out.println(i);
