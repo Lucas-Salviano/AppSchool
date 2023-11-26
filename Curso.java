@@ -9,42 +9,31 @@ public class Curso {
     private String nome;
     private int id;
     private String descricao;
-    private List<Alunos> alunos;
-    private List<Professores> professor;
+    private List<Alunos> ListaAlunos;
+    private List<Professores> Listaprofessor;
 
-    public Curso(String nome) {
+    public Curso(String nome, int id, String descricao) {
         this.nome = nome;
-        this.alunos = new ArrayList<>();
-        this.professor = new ArrayList<>();
-
-    }
-
-    public void adicionarAluno(Alunos aluno) {
-        alunos.add(aluno);
-    }
-
-    public void removerAluno(Alunos aluno) {
-        alunos.remove(aluno);
-    }
-
-    public void adicionarProfessor(Professores Professor){
-        professor.add(Professor);
+        this.id = id;
+        this.descricao = descricao;
+        this.ListaAlunos = new ArrayList<>();
+        this.Listaprofessor = new ArrayList<>();
     } 
 
     public List<Alunos> getAlunos() {
-        return alunos;
+        return ListaAlunos;
     }
 
     public void setAlunos(List<Alunos> alunos) {
-        this.alunos = alunos;
+        this.ListaAlunos = alunos;
     }
 
     public List<Professores> getProfessor() {
-        return professor;
+        return Listaprofessor;
     }
 
     public void setProfessor(List<Professores> Professor) {
-        this.professor = Professor;
+        this.Listaprofessor = Professor;
     }
     
     public String getNome() {
@@ -71,28 +60,31 @@ public class Curso {
         }
     }
     
-    public void criarCurso(){
-        Scanner input = new Scanner(System.in);
+    public void adicionarAluno(Alunos aluno) {
+        ListaAlunos.add(aluno);
+    }
 
-        System.out.println("Nome do curso: ");
-        nome = input.next();
-        System.out.println("Id: ");
-        id = input.nextInt();
-        System.out.println("Descrição: ");
-        descricao = input.next();
+    public void removerAluno(Alunos aluno) {
+        ListaAlunos.remove(aluno);
+    }
 
-        input.close();
+    public void adicionarProfessor(Professores professor){
+        Listaprofessor.add(professor);      
+    }
+
+    public void removerProfessor(Professores professor) {
+        Listaprofessor.remove(professor);
     }
 
     public void exibirInfo(){
         System.out.println("Nome: "+nome);
         System.out.println("Id: "+id);
-        System.out.println("Professor responsável: "+professor.get(0));
+        System.out.println("Professor responsável: ");
         System.out.println(" ");
         System.out.println("Descrição: "+descricao);
         System.out.println(" ");
         System.out.println("Alunos: ");
-        for (Alunos i : alunos){
+        for (Alunos i : ListaAlunos){
             System.out.println(i);
         }
     }

@@ -11,9 +11,9 @@ public class Alunos {
 
     public Alunos(String nome, int matricula, int serie, String dataInscricao) {
         this.nome = nome;
-        this.matricula = matricula;
-        this.serie = serie;
-        this.dataInscricao = dataInscricao;
+        this.matricula= matricula;
+        this.serie=serie;
+        this.dataInscricao=dataInscricao;
     }
 
     public String getNome() {
@@ -64,21 +64,7 @@ public class Alunos {
             System.out.println("O Aluno deve ter uma data de inscrição!");
         }
     }
-    
-    public void criarAluno (){
-        Scanner Sc = new Scanner(System.in);
-        
-        System.out.println("Nome do Aluno: ");
-        nome = Sc.next();
-        System.out.println("Matricula: ");
-        matricula = Sc.nextInt();
-        System.out.println("Serie: ");
-        serie = Sc.nextInt();
-        System.out.println("Data da inscrição: ");
-        dataInscricao = Sc.next();
-        Sc.close();      
-    }
-    
+   
     public void exibirAlunos(){
         System.out.println("Nome: "+nome);
         System.out.println("Matricula: "+matricula);

@@ -10,8 +10,8 @@ public class Professores {
 
     public Professores(String nome, int id, String dataContratacao) {
         this.nome = nome;
-        this.id = id;
-        this.dataContratacao = dataContratacao; 
+        this.id= id;
+        this.dataContratacao= dataContratacao;
     }
 
     public String getNome() {
@@ -49,20 +49,8 @@ public class Professores {
             System.out.println("O Professor deve ter uma data de contratação!");
         }
     }
-
-    public void criarProfessor (){
-        Scanner Sc = new Scanner(System.in);
-        
-        System.out.println("Nome do Professor: ");
-        nome = Sc.next();
-        System.out.println("Id: ");
-        id = Sc.nextInt();
-        System.out.println("Data de contratação: ");
-        dataContratacao = Sc.next();
-        Sc.close();     
-    }
     
-    public void exibirInfo(){
+    public void ExibirInfo(){
         System.out.println("Nome: "+nome);
         System.out.println("Id: "+id);
         System.out.println("Data de contratação: "+dataContratacao);

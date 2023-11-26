@@ -8,8 +8,11 @@ public class Diretor {
     private int idDiretor;
     private String dataContratação;
 
-    public Diretor(String nomeDiretor) {
-        this.nomeDiretor = nomeDiretor;
+    public Diretor(String nome, int id, String dataContratacao){
+        this.nomeDiretor = nome;
+        this.idDiretor = id;
+        this.dataContratação = dataContratacao;
+
     }
 
     public String getNomeDiretor() {
@@ -46,19 +49,6 @@ public class Diretor {
         } else {
             System.out.println("O diretor deve possuir uma data de contratação!");
         }
-    }
-    
-    public void CriarDiretor(){
-        Scanner input = new Scanner(System.in);
-
-        System.out.println("Id diretor: ");
-        idDiretor = input.nextInt();
-        input.nextLine();
-        System.out.println("Data de contratação: ");
-        dataContratação = input.nextLine();
-
-        input.close();
-        return;
     }
 
     public void exibirInfo(){

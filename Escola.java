@@ -10,54 +10,17 @@ public class Escola {
     private String endereco;
     private int id;
     private String dataFundacao; 
-    private List<Curso> cursos;
-    private List<Diretor> diretor;
+    private List<Curso> ListaCursos;
+    private List<Diretor> ListaDiretores;
 
-    //String nome, String endereco, int id, String dataFundacao, List<Curso> cursos, List<Diretor> diretor
-
-    public Escola(String nome) {
+    public Escola(String nome, String endereco, int id, String dataFundacao) {
         this.nome = nome;
-        this.cursos = new ArrayList<>();
-        this.diretor = new ArrayList<>();
+        this.id = id;
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.ListaCursos = new ArrayList<>();
+        this.ListaDiretores = new ArrayList<>();      
     }
-    
-    
-     public void adicionarCurso() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("É preciso cadastrar um curso.");
-        System.out.println("Qual o nome do curso? ");
-        String nomeCurso = input.nextLine();
-        Curso Curso = new Curso(nomeCurso);
-        Curso.criarCurso();
-        cursos.add(Curso);
-        
-        input.close();
-    }
-    
-    public void removerCurso(Curso curso) {
-        cursos.remove(curso);
-    }
-    
-    public void adicionarDiretor() {
-        Scanner input = new Scanner(System.in);
-        System.out.println("É preciso cadastrar um diretor.");
-        System.out.println("Qual o nome do diretor? ");
-        String nomeDiretor = input.nextLine();
-        Diretor Diretor = new Diretor(nomeDiretor);
-        Diretor.CriarDiretor();
-        diretor.add(Diretor);
-
-        input.close();
-    }
-
-    /*public void removerDiretor(Diretor Diretor) {
-        if(diretor.size()==0){
-            System.out.println("Não há nenhum diretor para remover!");
-        } else {
-            diretor.remove(Diretor);
-        }
-        
-    }*/
 
     public String getNome() {
         return nome;
@@ -108,34 +71,37 @@ public class Escola {
     }
 
     public List<Curso> getCurso() {
-        return cursos;
+        return ListaCursos;
     }
 
     public List<Diretor> getDiretor() {
-        return diretor;
+        return ListaDiretores;
     }
 
     public void setCurso(List<Curso> curso) {
-        this.cursos = curso;
+        this.ListaCursos = curso;
     }
 
-    public void criarEscola(){
-        Scanner input = new Scanner(System.in);
+    public void adicionarCurso(Curso curso) {
+        ListaCursos.add(curso);
+    }
+    
+    public void removerCurso(Curso curso) {
+        ListaCursos.remove(curso);
+    }
+    
+    public void adicionarDiretor(Diretor diretor) {
+        ListaDiretores.add(diretor);
+    }
 
-        System.out.println("Endereço: ");
-        endereco = input.nextLine();
-        System.out.println("Data de fundação (##/##/####): ");
-        dataFundacao = input.nextLine();
-        System.out.println("Id: ");
-        id = input.nextInt();
-        input.nextLine();
+    public void removerDiretor(Diretor diretor) {
+       ListaDiretores.remove(diretor);
+    }
 
-        adicionarDiretor();
-        adicionarCurso();
-
-        input.close();
-        return;
-        
+    public void listarDiretores() {
+        for (Diretor diretor : ListaDiretores) {
+            System.out.println("Diretor: " + diretor.getNomeDiretor() + ", ID: " + diretor.getIdDiretor() + ", Data de Contratação: " + diretor.getDataContratação());
+        }
     }
 
    public void ExibirInfo(){
@@ -143,7 +109,7 @@ public class Escola {
         System.out.println("Endereço: "+endereco);
         System.out.println("Data de fundação: "+dataFundacao);
         System.out.println("Id: "+id);       
-        System.out.println("Diretor: "+diretor);
+        System.out.println("Diretor: ");
         System.out.println(" ");
         /*System.out.println("Cursos: ");
         for (Curso i : cursos){
