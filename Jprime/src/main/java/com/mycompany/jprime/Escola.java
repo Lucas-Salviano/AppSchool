@@ -1,49 +1,25 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jprime;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
-/**
- *
- * @author lucas
- */
 public class Escola {
 
     private String nome;
     private String endereco;
     private int id;
-    private int fundacao;
-    private List<Curso> curso;
-    private List<Diretor> diretor;
+    private String dataFundacao; 
+    private List<Curso> ListaCursos;
+    private List<Diretor> ListaDiretores;
 
-    public Escola(String nome, String endereco, int id, int fundacao, List<Curso> curso) {
+    public Escola(String nome, String endereco, int id, String dataFundacao) {
         this.nome = nome;
-        this.endereco = endereco;
         this.id = id;
-        this.fundacao = fundacao;
-        this.curso = new ArrayList<>();
-        this.diretor = new ArrayList<>();
-    }
-    
-    //add curso
-     public void adicionarCurso(Curso cursos) {
-        curso.add(cursos);
-    }
-     //remove curso
-    public void removerAluno(Curso cursos) {
-        curso.remove(cursos);
-    }
-    // add diretor
-    public void adicionarCurso(Diretor direto) {
-        diretor.add(direto);
-    }
-    // remove curso
-    public void removerAluno(Diretor direto) {
-        diretor.remove(direto);
+        this.endereco = endereco;
+        this.dataFundacao = dataFundacao;
+        this.ListaCursos = new ArrayList<>();
+        this.ListaDiretores = new ArrayList<>();      
     }
 
     public String getNome() {
@@ -51,7 +27,11 @@ public class Escola {
     }
 
     public void setNome(String nome) {
-        this.nome = nome;
+        if(nome != null){
+            this.nome = nome;
+        } else {
+            System.out.println("A escola deve ter um nome!");
+        }
     }
 
     public String getEndereco() {
@@ -59,7 +39,11 @@ public class Escola {
     }
 
     public void setEndereco(String endereco) {
-        this.endereco = endereco;
+        if(endereco != null){
+            this.endereco = endereco;
+        } else {
+            System.out.println("A escola deve ter um endereco!");
+        }
     }
 
     public int getId() {
@@ -67,28 +51,69 @@ public class Escola {
     }
 
     public void setId(int id) {
-        this.id = id;
+        if(id != 0){
+            this.id = id;
+        } else {
+            System.out.println("A escola deve ter um Id!");
+        }
     }
 
-    public int getFundacao() {
-        return fundacao;
+    public String getDataFundacao() {
+        return dataFundacao;
     }
 
-    public void setFundacao(int fundacao) {
-        this.fundacao = fundacao;
+    public void setDataFundacao(String dataFundacao) {
+        if(dataFundacao != null){
+            this.dataFundacao = dataFundacao;
+        } else {
+            System.out.println("A escola deve ter uma data de fundação!");
+        }
     }
 
     public List<Curso> getCurso() {
-        return curso;
+        return ListaCursos;
+    }
+
+    public List<Diretor> getDiretor() {
+        return ListaDiretores;
     }
 
     public void setCurso(List<Curso> curso) {
-        this.curso = curso;
+        this.ListaCursos = curso;
+    }
+
+    public void adicionarCurso(Curso curso) {
+        ListaCursos.add(curso);
+    }
+    
+    public void removerCurso(Curso curso) {
+        ListaCursos.remove(curso);
+    }
+    
+    public void adicionarDiretor(Diretor diretor) {
+        ListaDiretores.add(diretor);
+    }
+
+    public void removerDiretor(Diretor diretor) {
+       ListaDiretores.remove(diretor);
+    }
+
+    public void listarDiretores() {
+        for (Diretor diretor : ListaDiretores) {
+            System.out.println("Diretor: " + diretor.getNomeDiretor() + ", ID: " + diretor.getIdDiretor() + ", Data de Contratação: " + diretor.getDataContratação());
+        }
     }
 
    public void ExibirInfo(){
-       System.out.println(nome);
-       System.out.println(id);
-       System.out.println(fundacao);
+        System.out.println("Nome: "+nome);
+        System.out.println("Endereço: "+endereco);
+        System.out.println("Data de fundação: "+dataFundacao);
+        System.out.println("Id: "+id);       
+        System.out.println("Diretor: ");
+        System.out.println(" ");
+        /*System.out.println("Cursos: ");
+        for (Curso i : cursos){
+            System.out.println(i);
+        }*/     
    }
 }

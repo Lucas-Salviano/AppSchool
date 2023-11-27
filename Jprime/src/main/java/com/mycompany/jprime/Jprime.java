@@ -1,47 +1,132 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.jprime;
 
 import java.util.List;
+import java.util.Scanner;
+import java.util.ArrayList;
 
-/**
- *
- * @author lucas
- */
 public class Jprime {
+    private static Escola criarEscola() {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite o nome da escola:");
+        String nome = input.nextLine();
+
+        System.out.println("Digite o número ID:");
+        int id = input.nextInt();
+        input.nextLine(); 
+
+        System.out.println("Digite o endereço:");
+        String endereco = input.nextLine();
+
+        System.out.println("Digite a data de fundação(##/##/####):");
+        String dataFundacao = input.nextLine();
+
+        return new Escola(nome,endereco,id,dataFundacao);
+    }
+
+    public static Diretor criarDiretor(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite o nome do(a) diretor(a)");
+        String nome = input.nextLine();    
+
+        System.out.println("Digite o número ID: ");
+        int id = input.nextInt();
+        input.nextLine();
+
+        System.out.println("Digite a data de contratação(##/##/####): ");
+        String dataContratação = input.nextLine();
+
+        return new Diretor(nome, id, dataContratação);
+    }
+
+    public static Curso criarCurso(){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite o nome do curso:");
+        String nome = input.nextLine();
+
+        System.out.println("Digite o número ID: ");
+        int id = input.nextInt();
+        input.nextLine();
+
+        System.out.println("Digite a descrição: ");
+        String descricao = input.nextLine();
+
+        return new Curso(nome, id, descricao);
+    }
+
+    public static Professores criarProfessor (){
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Digite o nome do(a) professor(a):");
+        String nome = input.nextLine();
+
+        System.out.println("Digite o número ID: ");
+        int id = input.nextInt();
+        input.nextLine();
+
+        System.out.println("Digite a data de contratação(##/##/####): ");
+        String dataContratacao = input.nextLine();     
+        
+        return new Professores(nome, id, dataContratacao);
+    }
+
+    /*public static Alunos criarAluno (){
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("Digite o nome do(a) aluno(a):");
+        String nome= input.nextLine();
+        
+        System.out.println("Digite o número de matricula: ");
+        String matricula = input.nextLine();
+        input.nextLine();
+
+        System.out.println("Digite a série: ");
+        String serie = input.nextLine();
+        input.nextLine();
+
+        System.out.println("Digite a data da inscrição(##/##/####): ");
+        String dataInscricao = input.nextLine();
+        
+        return new Alunos(nome, matricula, serie, dataInscricao);     
+    }
+
+    /* Obs: Não fechar nenhum input (pode dar erro); Para usar scanner em string use input.nextLine() (Tem varios exemplos no codigo);
+     * Se for utilizar scanner para número use input.nextInt(); e na linha abaixo coloque o input.nextLine() (também tem varios exemplos no codigo);
+     * 
+     * Explicação: nada vai funcionar senão existir a primeira escola, então primeiro eu puxo a função 
+     * de criar a primeira escola 
+    */
+    
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        
-        //Curso curso = new Curso("eng. computation",343432,"curso de computação",15,6,1999);
-        //Curso curso2 = new Curso("eng. agricula",4767456,"curso de agricultura",3,8,2003);
-        Diretor director1 = new Diretor("cleber", 345345,30,05,1970);
-        Diretor diretor2 = new Diretor("jorgi", 5645646, 23, 5, 5432);
-        Curso curso1 = new Curso("Ciência da Computação", 1);
-        Curso curso2 = new Curso("Engenharia Elétrica", 2);
-        
-        Alunos aluno = new Alunos("adler",33454,3,16,06,3433);
-        
-        Alunos aluno2 = new Alunos("gir",43534,6,17,12,34535);
-        
-        curso1.adicionarAluno(aluno);
-        curso2.adicionarAluno(aluno2);
-        curso1.adicionarAluno(aluno2);
-        
-        //teste exibindo alunos e informações deles, isto deve ser melhorado
-        
-        List<Alunos> alunosCurso1 = curso1.getAlunos();
-        for (Alunos alunos : alunosCurso1) {
-            System.out.println("Aluno do curso 1: " + alunos.getNomeA());
-            alunos.exibirAlunos();
-        }
-        
-         List<Alunos> alunosCurso2 = curso2.getAlunos();
-        for (Alunos alunos : alunosCurso2) {
-            System.out.println("Aluno do curso 2: " + alunos.getNomeA());
-            alunos.exibirAlunos();
-        }
+        while (true) { //serve para fazer o código sempre continuar rodando
+
+            List<Escola> ListaEscolas;
+
+            Scanner input = new Scanner(System.in);
+
+            ListaEscolas = new ArrayList<>();
+
+            System.out.println("GERENCIADOR DE ESCOLAS");
+            System.out.println("Para iniciar, é preciso criar a primeira Escola");
+
+            Escola escola1 = criarEscola();
+            ListaEscolas.add(escola1);
+
+            System.out.println("Também é preciso criar um diretor para a escola");            
+            Diretor diretor1 = criarDiretor();
+            escola1.adicionarDiretor(diretor1);
+            escola1.listarDiretores();
+
+
+            
+                int acao=0;
+                System.out.println("Pressione 1 para fechar");
+                acao = input.nextInt();
+                input.nextLine();
+                if(acao==1) break;           
+        }              
     }
 }

@@ -1,75 +1,58 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jprime;
 
-/**
- *
- * @author lucas
- */
+import java.util.Scanner;
+
 public class Professores {
     
-    private String nomeProfessor ;
-    private int IDprofessor;
-    // data do dia do contrato
-    private int dataPDia;
-    private int dataPMes;
-    private int dataPAno;
+    private String nome;
+    private int id;
+    private String dataContratacao;
 
-    public Professores(String nomeProfessor, int IDprofessor, int dataPDia, int dataPMes, int dataPAno) {
-        this.nomeProfessor = nomeProfessor;
-        this.IDprofessor = IDprofessor;
-        this.dataPDia = dataPDia;
-        this.dataPMes = dataPMes;
-        this.dataPAno = dataPAno;
+    public Professores(String nome, int id, String dataContratacao) {
+        this.nome = nome;
+        this.id= id;
+        this.dataContratacao= dataContratacao;
     }
 
-    public String getNomeProfessor() {
-        return nomeProfessor;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProfessor(String nomeProfessor) {
-        this.nomeProfessor = nomeProfessor;
+    public void setNome(String nome) {
+        if(nome != null){
+            this.nome = nome;
+        } else {
+            System.out.println("O Professor deve ter um nome!");
+        }
     }
 
-    public int getIDprofessor() {
-        return IDprofessor;
+    public int getId() {
+        return id;
     }
 
-    public void setIDprofessor(int IDprofessor) {
-        this.IDprofessor = IDprofessor;
+    public void setId(int id) {
+        if(id != 0){
+            this.id = id;
+        } else {
+            System.out.println("O Professor deve ter um Id!");
+        }
     }
 
-    public int getDataPDia() {
-        return dataPDia;
+    public String getDataContratacao(){
+        return dataContratacao;
     }
 
-    public void setDataPDia(int dataPDia) {
-        this.dataPDia = dataPDia;
-    }
-
-    public int getDataPMes() {
-        return dataPMes;
-    }
-
-    public void setDataPMes(int dataPMes) {
-        this.dataPMes = dataPMes;
-    }
-
-    public int getDataPAno() {
-        return dataPAno;
-    }
-
-    public void setDataPAno(int dataPAno) {
-        this.dataPAno = dataPAno;
+    public void setDataContratação(String dataContratacao){
+        if(dataContratacao != null){
+            this.dataContratacao = dataContratacao;
+        } else {
+            System.out.println("O Professor deve ter uma data de contratação!");
+        }
     }
     
-    public void exibirInfo(){
-        System.out.println(nomeProfessor);
-        System.out.println(IDprofessor);
-        System.out.println(dataPDia);
-        System.out.println(dataPMes);
-        System.out.println(dataPAno);
+    public void ExibirInfo(){
+        System.out.println("Nome: "+nome);
+        System.out.println("Id: "+id);
+        System.out.println("Data de contratação: "+dataContratacao);
     }
 }

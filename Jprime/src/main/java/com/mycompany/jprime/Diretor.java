@@ -1,28 +1,18 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycompany.jprime;
 
-/**
- *
- * @author lucas
- */
+import java.util.Scanner;
+
 public class Diretor {
     
     private String nomeDiretor;
-    private int IDdiretor;
-    //tada do dia do contrato
-    private int dataDDia;
-    private int dataDMes;
-    private int dataDAno;
+    private int idDiretor;
+    private String dataContratação;
 
-    public Diretor(String nomeDiretor, int IDdiretor, int dataDDia, int dataDMes, int dataDAno) {
-        this.nomeDiretor = nomeDiretor;
-        this.IDdiretor = IDdiretor;
-        this.dataDDia = dataDDia;
-        this.dataDMes = dataDMes;
-        this.dataDAno = dataDAno;
+    public Diretor(String nome, int id, String dataContratacao){
+        this.nomeDiretor = nome;
+        this.idDiretor = id;
+        this.dataContratação = dataContratacao;
+
     }
 
     public String getNomeDiretor() {
@@ -30,47 +20,41 @@ public class Diretor {
     }
 
     public void setNomeDiretor(String nomeDiretor) {
-        this.nomeDiretor = nomeDiretor;
+        if (nomeDiretor != null){
+            this.nomeDiretor = nomeDiretor;
+        } else {
+            System.out.println("O diretor deve possuir um nome!");
+        }
     }
 
-    public int getIDdiretor() {
-        return IDdiretor;
+    public int getIdDiretor() {
+        return idDiretor;
     }
 
-    public void setIDdiretor(int IDdiretor) {
-        this.IDdiretor = IDdiretor;
+    public void setIdDiretor(int idDiretor) {
+        if(idDiretor != 0){
+            this.idDiretor = idDiretor;
+        } else {
+            System.out.println("O diretor deve possuir um Id!");
+        }
     }
 
-    public int getDataDDia() {
-        return dataDDia;
+    public String getDataContratação(){
+        return dataContratação;
     }
 
-    public void setDataDDia(int dataDDia) {
-        this.dataDDia = dataDDia;
+    public void setDataContratação(String dataContratação){
+        if(dataContratação != null){
+            this.dataContratação = dataContratação;
+        } else {
+            System.out.println("O diretor deve possuir uma data de contratação!");
+        }
     }
 
-    public int getDataDMes() {
-        return dataDMes;
-    }
-
-    public void setDataDMes(int dataDMes) {
-        this.dataDMes = dataDMes;
-    }
-
-    public int getDataDAno() {
-        return dataDAno;
-    }
-
-    public void setDataDAno(int dataDAno) {
-        this.dataDAno = dataDAno;
-    }
-    
     public void exibirInfo(){
-    System.out.print(nomeDiretor);
-    System.out.print(IDdiretor);
-    System.out.print(dataDDia);
-    System.out.print(dataDMes);
-    System.out.print(dataDAno);
+        System.out.print(nomeDiretor);
+        System.out.print(idDiretor);
+        System.out.print(dataContratação);
     }
     
 }
